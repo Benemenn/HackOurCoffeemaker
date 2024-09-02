@@ -19,6 +19,7 @@
 - ML - Machine Learning
 - Agents - Independent Systems that think on their own
 - Reinforced Learning - 
+- OEE - Overall Equipment Effectiveness = Qual Fact * Perf Fact * Availybility
 - ...
 
 ## Introduction into I4.0
