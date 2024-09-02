@@ -7,7 +7,6 @@ class BrokerConfig():
     mqtt_keepalive = 60
     mqtt_topic_energyData = "bipfinnland/monitoring9/data"
 
-broker = BrokerConfig()
 
 # Define the callback function for when a message is received
 def on_message(client, userdata, message):
@@ -21,6 +20,7 @@ def on_connect(client, userdata, flags, rc):
 
 # Create an MQTT client instance
 client = mqtt.Client(protocol=mqtt.MQTTv311)
+broker = BrokerConfig()
 
 # Assign the on_connect and on_message callback functions
 client.on_connect = on_connect
