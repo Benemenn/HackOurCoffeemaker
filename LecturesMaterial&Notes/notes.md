@@ -40,3 +40,4 @@
     - Transparency
     - Predictive Capacity
     - Adaptability
+    
