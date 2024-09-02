@@ -5,3 +5,4 @@
 - [ ] Potentially check high times by doing experiments, check in cafeteria when mosed used.
 - [ ] Include OEE in final presentation
 - [ ] Check if possible to actuate and start machine without human interferance
+- [ ] providing information about left coffees for used pads on the display 
