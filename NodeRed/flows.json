@@ -247,7 +247,7 @@
         "gtype": "gage",
         "title": "Current",
         "label": "A (RMS)",
-        "format": "{{msg.payload.data[\"Current Low\"]}}",
+        "format": "{{msg.payload.data[\"Current Low\"] | number: 2}}",
         "min": 0,
         "max": 10,
         "colors": [
@@ -275,7 +275,7 @@
         "gtype": "gage",
         "title": "Voltage",
         "label": "V (RMS)",
-        "format": "{{msg.payload.data.Voltage}}",
+        "format": "{{msg.payload.data.Voltage | number: 2}}",
         "min": 0,
         "max": "460",
         "colors": [
@@ -303,7 +303,7 @@
         "gtype": "gage",
         "title": "Power",
         "label": "W",
-        "format": "{{msg.payload.data[\"Power Low\"]}}",
+        "format": "{{msg.payload.data[\"Power Low\"] | number: 2}}",
         "min": 0,
         "max": "2000",
         "colors": [
@@ -331,7 +331,7 @@
         "gtype": "gage",
         "title": "Powerfactor",
         "label": "cos(phi)",
-        "format": "{{msg.payload.data[\"Power Factor\"]}}",
+        "format": "{{msg.payload.data[\"Power Factor\"] | number: 2}}",
         "min": 0,
         "max": "2",
         "colors": [
@@ -424,7 +424,7 @@
         "gtype": "gage",
         "title": "Apparent Power",
         "label": "VA",
-        "format": "{{msg.S}}",
+        "format": "{{msg.S | number: 2}}",
         "min": 0,
         "max": "2000",
         "colors": [
@@ -452,7 +452,7 @@
         "gtype": "gage",
         "title": "Reactive Power",
         "label": "VAr",
-        "format": "{{msg.Q}}",
+        "format": "{{msg.Q | number: 2}}",
         "min": 0,
         "max": "2000",
         "colors": [
@@ -501,7 +501,7 @@
         "gtype": "gage",
         "title": "Frequency",
         "label": "Hz",
-        "format": "{{msg.payload.data.Frequency}}",
+        "format": "{{msg.payload.data.Frequency | number: 2}}",
         "min": 0,
         "max": "100",
         "colors": [
