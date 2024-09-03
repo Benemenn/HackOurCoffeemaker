@@ -43,3 +43,12 @@
     - Predictive Capacity
     - Adaptability
     
+
+## Day 2 - RAMI4.0
+
+### RAMI Model
+
+1. Life Cycle and Value Stream - engineering and management of products and production plant over whole lifecycle
+1. Hierarchy Levels - Seamles automation from sensors to business
+1. Layers - a shell model for a holistical information exchange
+
