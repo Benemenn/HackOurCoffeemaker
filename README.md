@@ -47,10 +47,9 @@ This project involves the enhancement of a standard coffee machine by integratin
 - If not enough pins are available on the current ESP-32, add a second ESP-32.
 - Establish communication between the two ESP-32 units.
 
-### 7. Detecting wether there is a cup of coffee via LEd?
-
 ### 7. Control the Heater
 - Investigate the possibility of turning the heater on and off using minimally invasive electronics.
 - Implement this functionality if feasible.
-
+  
+### 8. Detecting wether there is a cup of coffee via LEd?
 
