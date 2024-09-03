@@ -26,9 +26,9 @@
 
 ## Introduction into I4.0
 
-- Vertical integration 
-- horizontal integration
-- seamless engineering over the lifecycle
+- Vertical integration and networked production systems
+- Horizontal integration via value creation networks 
+- seamless engineering over the lifecycle / Consistency of the engineering over the entire life cycle
 
 ### I4.0 Steps
 
