@@ -11,6 +11,7 @@
 
 - [Documentation by FH-Aachen](https://git.fh-aachen.de/lectures-material-wollert/hack-your-coffeemaschine/-/wikis/home)
 - [Platform I40 - German Government](https://www.plattform-i40.de/IP/Navigation/EN/Home/home.html)
+- [Node-Red](https://nodered.org)
 
 ## Words and stuff
 
@@ -57,5 +58,13 @@
 - Asset: may be a lot, from the cup of coffee to the machine
 - RAMI4.0: Reference architecture i4.0
 - Instance: model created from a type
+- OPCUA - Open Protocol Communication Unified Access
 
 ![](./images/RAMI4.0_HotStuff.jpg)
+
+
+### Road today RealTime
+
+- from Point to Point Comm -> data collection in cloud and processing
+- 
+
