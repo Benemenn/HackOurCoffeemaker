@@ -1,0 +1,590 @@
+[
+    {
+        "id": "647bac3ec3c3cc05",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a8414d2cd57bea3c",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/tty.usbserial-0001",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "ae7a0ca1ae301781",
+        "type": "mqtt-broker",
+        "name": "Mosquitto Test",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "76eb5674bafe1f3a",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f556eaec7a010a81",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "3c65e44c8e7c6771",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "76eb5674bafe1f3a",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "61444ff043e95b35",
+        "type": "ui_tab",
+        "name": "Live Energy Data",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f3216bf7966ded35",
+        "type": "ui_group",
+        "name": "Live Data",
+        "tab": "61444ff043e95b35",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b571aa02ddf1e176",
+        "type": "mqtt-broker",
+        "name": "BaristaBroker",
+        "broker": "192.168.178.21",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c08a8dc223d08a40",
+        "type": "ui_group",
+        "name": "Live Data Power",
+        "tab": "61444ff043e95b35",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "911d76fd5582b406",
+        "type": "ui_gauge",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "group": "f3216bf7966ded35",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Current",
+        "label": "A (RMS)",
+        "format": "{{msg.payload.data[\"Current Low\"]}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 740,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "88b75c62c1345be8",
+        "type": "ui_gauge",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "group": "f3216bf7966ded35",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Voltage",
+        "label": "V (RMS)",
+        "format": "{{msg.payload.data.Voltage}}",
+        "min": 0,
+        "max": "460",
+        "colors": [
+            "#ff2600",
+            "#00f900",
+            "#ff2600"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 740,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8fc1baa81edcd16e",
+        "type": "ui_gauge",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "group": "c08a8dc223d08a40",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Power",
+        "label": "W",
+        "format": "{{msg.payload.data[\"Power Low\"]}}",
+        "min": 0,
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 730,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0dd3dc3cec64ff0c",
+        "type": "ui_gauge",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "group": "c08a8dc223d08a40",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Powerfactor",
+        "label": "cos(phi)",
+        "format": "{{msg.payload.data[\"Power Factor\"]}}",
+        "min": 0,
+        "max": "2",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c49ee86ddeb6f115",
+        "type": "mqtt in",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "topic": "bipfinnland/monitoring9/data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b571aa02ddf1e176",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "c4317c3fcd55e685",
+                "88b75c62c1345be8",
+                "911d76fd5582b406",
+                "8fc1baa81edcd16e",
+                "0dd3dc3cec64ff0c",
+                "9a78172a22fed8e3",
+                "4d03efb35a7ce351"
+            ]
+        ]
+    },
+    {
+        "id": "c4317c3fcd55e685",
+        "type": "debug",
+        "z": "647bac3ec3c3cc05",
+        "name": "MQTT Output",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9a78172a22fed8e3",
+        "type": "function",
+        "z": "647bac3ec3c3cc05",
+        "name": "Calc S",
+        "func": "msg.S = msg.payload.data[\"Power Low\"] / msg.payload.data[\"Power Factor\"]\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 300,
+        "wires": [
+            [
+                "ca38033e2a76a3ed",
+                "d1f8c5d3db59b358"
+            ]
+        ]
+    },
+    {
+        "id": "ca38033e2a76a3ed",
+        "type": "ui_gauge",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "group": "c08a8dc223d08a40",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Apparent Power",
+        "label": "VA",
+        "format": "{{msg.S}}",
+        "min": 0,
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 760,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "25c5c3bb994bc992",
+        "type": "ui_gauge",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "group": "c08a8dc223d08a40",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Reactive Power",
+        "label": "VAr",
+        "format": "{{msg.Q}}",
+        "min": 0,
+        "max": "2000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 760,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d1f8c5d3db59b358",
+        "type": "function",
+        "z": "647bac3ec3c3cc05",
+        "name": "Calc Q",
+        "func": "msg.Q = msg.S * Math.sin(Math.acos(msg.payload.data[\"Power Factor\"]))\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 340,
+        "wires": [
+            [
+                "25c5c3bb994bc992",
+                "dd35cc60f1f49cc5"
+            ]
+        ]
+    },
+    {
+        "id": "4d03efb35a7ce351",
+        "type": "ui_gauge",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "group": "f3216bf7966ded35",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Frequency",
+        "label": "Hz",
+        "format": "{{msg.payload.data.Frequency}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ff2600",
+            "#00f900",
+            "#ff2600"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2609a9bb19d07e79",
+        "type": "ui_chart",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "group": "c08a8dc223d08a40",
+        "order": 4,
+        "width": "8",
+        "height": "6",
+        "label": "Power Chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "1000",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#669c35",
+            "#7b219f",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 890,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dd35cc60f1f49cc5",
+        "type": "function",
+        "z": "647bac3ec3c3cc05",
+        "name": "Prepare Chart",
+        "func": "var msgP = {};\nvar msgS = {};\nvar msgQ = {};\n\nmsgP.payload = msg.payload.data[\"Power Low\"];\nmsgP.topic = 'P';\n\nmsgS.payload = msg.S;\nmsgS.topic = 'S';\n\nmsgQ.payload = msg.Q;\nmsgQ.topic = 'Q'\n\nreturn [msgS, msgP, msgQ];",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 400,
+        "wires": [
+            [
+                "2609a9bb19d07e79"
+            ],
+            [
+                "2609a9bb19d07e79"
+            ],
+            [
+                "2609a9bb19d07e79"
+            ]
+        ]
+    }
+]
