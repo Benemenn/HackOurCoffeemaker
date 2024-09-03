@@ -52,3 +52,10 @@
 1. Hierarchy Levels - Seamles automation from sensors to business
 1. Layers - a shell model for a holistical information exchange
 
+### Words
+
+- Asset: may be a lot, from the cup of coffee to the machine
+- RAMI4.0: Reference architecture i4.0
+- Instance: model created from a type
+
+![](./images/RAMI4.0_HotStuff.jpg)
