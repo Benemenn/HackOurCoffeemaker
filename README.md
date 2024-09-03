@@ -53,3 +53,5 @@ This project involves the enhancement of a standard coffee machine by integratin
   
 ### 8. Detecting wether there is a cup of coffee via LEd?
 
+### 9. programming the calculation for the OEE
+
