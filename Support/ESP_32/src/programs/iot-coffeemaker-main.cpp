@@ -24,7 +24,7 @@ static const IPAddress MQTT_BROKER_IP(192, 168, 178, 21); // broker on the Baris
 static const u16_t MQTT_BROKER_PORT = 1883;
 Stopwatch32MS publishWatch;
 static const u32_t PUBLISH_INTERVAL_MILLIS = 500;
-static const char* PUBLISH_TOPIC = "State";
+static const char* PUBLISH_TOPIC = "bipfinnland/monitoring9/esp";
 // json:
 static JsonDocument jsonDoc;
 // NTP:
