@@ -78,4 +78,5 @@
     - stateless description of processes and behaviour
 
 - UML: Unified Modelling Language
-- SysML: System Modelling Language - describe software and mechatronical systems
+- SysML: System Modelling Language - describe software and mechatronical systems [see here](https://i40.fh-aachen.de/intranet/materials/additional/uml/index.html)
+
