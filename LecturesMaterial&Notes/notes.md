@@ -103,3 +103,9 @@
 
 - Typical usecases fir a digital twin
     - 
+
+
+### JSON
+
+- Object oriented modeling language
+-  
