@@ -80,3 +80,26 @@
 - UML: Unified Modelling Language
 - SysML: System Modelling Language - describe software and mechatronical systems [see here](https://i40.fh-aachen.de/intranet/materials/additional/uml/index.html)
 
+- Model Based design:
+    - Analysis
+    - Design
+    - test
+    - integration
+    - usage
+    - (disposal)
+
+- use models to prove results against the models predictions
+
+
+### Digital Twins
+
+- **Logical representation of a physical asset**
+
+- The digital twin basically is the model of the system you are bulding up
+    - no personality, should explain the bahaviour as close as possible
+    - physical entity, and a correspinding model of the entity
+    - create a digital twin, only if an object has a longer lifespan, if it needs updates, service & co
+    - short lifespan models do not need a digital twin!
+
+- Typical usecases fir a digital twin
+    - 
