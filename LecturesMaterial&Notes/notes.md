@@ -68,3 +68,14 @@
 - from Point to Point Comm -> data collection in cloud and processing
 - 
 
+## Day 3 - RAMI4.0 - 2
+
+- mastering complex models
+    - planning models
+    - context : Scope of a system. One can have a completely different context than another
+
+- BPMN: Business Process Modelling Notation
+    - stateless description of processes and behaviour
+
+- UML: Unified Modelling Language
+- SysML: System Modelling Language - describe software and mechatronical systems
