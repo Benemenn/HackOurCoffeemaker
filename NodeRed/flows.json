@@ -2,7 +2,23 @@
     {
         "id": "647bac3ec3c3cc05",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Energy Data Processing",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a76544aad63ee78a",
+        "type": "tab",
+        "label": "Global Var Def",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9d82848fbf653b21",
+        "type": "tab",
+        "label": "DigTwin Senseo",
         "disabled": false,
         "info": "",
         "env": []
@@ -70,7 +86,7 @@
         "id": "f556eaec7a010a81",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
@@ -80,9 +96,10 @@
             },
             "darkTheme": {
                 "default": "#097479",
-                "baseColor": "#097479",
+                "baseColor": "#669c35",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -92,16 +109,16 @@
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
-                    "edited": false
+                    "default": "#097479",
+                    "value": "#669c35",
+                    "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#669c35",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
+                    "value": "#111111",
                     "edited": false
                 },
                 "page-sidebar-backgroundColor": {
@@ -109,27 +126,27 @@
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#1bbfff",
+                    "value": "#8cc657",
                     "edited": false
                 },
                 "group-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#555555",
                     "edited": false
                 },
                 "group-backgroundColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "widget-textColor": {
-                    "value": "#111111",
+                    "value": "#eeeeee",
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#669c35",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
@@ -145,7 +162,7 @@
             }
         },
         "site": {
-            "name": "Node-RED Dashboard",
+            "name": "GroupCHacksTheirCoffeemaker",
             "hideToolbar": "false",
             "allowSwipe": "false",
             "lockMenu": "false",
@@ -236,12 +253,72 @@
         "className": ""
     },
     {
+        "id": "8a1c17f8f33b9d3b",
+        "type": "mqtt-broker",
+        "name": "local",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "02892e1e08971927",
+        "type": "ui_tab",
+        "name": "DigitalTwin",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e5305a6a50a756a8",
+        "type": "ui_group",
+        "name": "DigTwin",
+        "tab": "02892e1e08971927",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f39b836094b74fdd",
+        "type": "ui_spacer",
+        "z": "647bac3ec3c3cc05",
+        "name": "spacer",
+        "group": "f3216bf7966ded35",
+        "order": 6,
+        "width": "3",
+        "height": "1"
+    },
+    {
         "id": "911d76fd5582b406",
         "type": "ui_gauge",
         "z": "647bac3ec3c3cc05",
         "name": "",
         "group": "f3216bf7966ded35",
-        "order": 1,
+        "order": 2,
         "width": "3",
         "height": "3",
         "gtype": "gage",
@@ -260,7 +337,7 @@
         "diff": false,
         "className": "",
         "x": 740,
-        "y": 140,
+        "y": 120,
         "wires": []
     },
     {
@@ -269,7 +346,7 @@
         "z": "647bac3ec3c3cc05",
         "name": "",
         "group": "f3216bf7966ded35",
-        "order": 2,
+        "order": 4,
         "width": "3",
         "height": "3",
         "gtype": "gage",
@@ -288,7 +365,7 @@
         "diff": false,
         "className": "",
         "x": 740,
-        "y": 100,
+        "y": 80,
         "wires": []
     },
     {
@@ -316,7 +393,7 @@
         "diff": false,
         "className": "",
         "x": 730,
-        "y": 220,
+        "y": 200,
         "wires": []
     },
     {
@@ -344,7 +421,7 @@
         "diff": false,
         "className": "",
         "x": 750,
-        "y": 260,
+        "y": 240,
         "wires": []
     },
     {
@@ -361,7 +438,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 140,
-        "y": 100,
+        "y": 160,
         "wires": [
             [
                 "c4317c3fcd55e685",
@@ -370,7 +447,9 @@
                 "8fc1baa81edcd16e",
                 "0dd3dc3cec64ff0c",
                 "9a78172a22fed8e3",
-                "4d03efb35a7ce351"
+                "4d03efb35a7ce351",
+                "b62ef80b50d3c7f8",
+                "ece670fa6620974c"
             ]
         ]
     },
@@ -387,8 +466,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 420,
-        "y": 40,
+        "x": 460,
+        "y": 100,
         "wires": []
     },
     {
@@ -404,7 +483,7 @@
         "finalize": "",
         "libs": [],
         "x": 370,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "ca38033e2a76a3ed",
@@ -437,7 +516,7 @@
         "diff": false,
         "className": "",
         "x": 760,
-        "y": 300,
+        "y": 360,
         "wires": []
     },
     {
@@ -465,7 +544,7 @@
         "diff": false,
         "className": "",
         "x": 760,
-        "y": 340,
+        "y": 400,
         "wires": []
     },
     {
@@ -481,7 +560,7 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 340,
+        "y": 400,
         "wires": [
             [
                 "25c5c3bb994bc992",
@@ -495,7 +574,7 @@
         "z": "647bac3ec3c3cc05",
         "name": "",
         "group": "f3216bf7966ded35",
-        "order": 1,
+        "order": 3,
         "width": "3",
         "height": "3",
         "gtype": "gage",
@@ -514,7 +593,7 @@
         "diff": false,
         "className": "",
         "x": 750,
-        "y": 180,
+        "y": 160,
         "wires": []
     },
     {
@@ -556,7 +635,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 890,
-        "y": 400,
+        "y": 460,
         "wires": [
             []
         ]
@@ -574,7 +653,7 @@
         "finalize": "",
         "libs": [],
         "x": 680,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "2609a9bb19d07e79"
@@ -584,6 +663,946 @@
             ],
             [
                 "2609a9bb19d07e79"
+            ]
+        ]
+    },
+    {
+        "id": "0560222a4123a9e7",
+        "type": "ui_text",
+        "z": "647bac3ec3c3cc05",
+        "group": "f3216bf7966ded35",
+        "order": 5,
+        "width": "4",
+        "height": "1",
+        "name": "",
+        "label": "Machine Status",
+        "format": "{{msg.status}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 740,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "68038e7d5c6ddedd",
+        "type": "debug",
+        "z": "647bac3ec3c3cc05",
+        "name": "Status Debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "status",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "93774033e29fb465",
+        "type": "switch",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "property": "payload.data[\"Current Low\"]",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "CurrentIdleThreshold",
+                "vt": "global"
+            },
+            {
+                "t": "lt",
+                "v": "CurrentIdleThreshold",
+                "vt": "global"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 700,
+        "wires": [
+            [
+                "1f939a878540b944"
+            ],
+            [
+                "63c5a18e25296084"
+            ]
+        ]
+    },
+    {
+        "id": "1f939a878540b944",
+        "type": "change",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "status",
+                "pt": "msg",
+                "to": "Producing",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 680,
+        "wires": [
+            [
+                "0560222a4123a9e7",
+                "68038e7d5c6ddedd"
+            ]
+        ]
+    },
+    {
+        "id": "63c5a18e25296084",
+        "type": "change",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "status",
+                "pt": "msg",
+                "to": "IDLE",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 720,
+        "wires": [
+            [
+                "0560222a4123a9e7",
+                "68038e7d5c6ddedd"
+            ]
+        ]
+    },
+    {
+        "id": "b7bb0f5b67f6ef79",
+        "type": "ui_led",
+        "z": "647bac3ec3c3cc05",
+        "order": 7,
+        "group": "f3216bf7966ded35",
+        "width": "4",
+        "height": "1",
+        "label": "Heating Element",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#7a7a7a",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#669c35",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 730,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "dafb7627d41c1b23",
+        "type": "switch",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "property": "payload.data[\"Current Low\"]",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "CurrentPumpThreshold",
+                "vt": "global"
+            },
+            {
+                "t": "lt",
+                "v": "CurrentPumpThreshold",
+                "vt": "global"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 780,
+        "wires": [
+            [
+                "d34e8a5899b1d178"
+            ],
+            [
+                "aa08b60304accf98"
+            ]
+        ]
+    },
+    {
+        "id": "d34e8a5899b1d178",
+        "type": "change",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 760,
+        "wires": [
+            [
+                "b7bb0f5b67f6ef79"
+            ]
+        ]
+    },
+    {
+        "id": "aa08b60304accf98",
+        "type": "change",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 800,
+        "wires": [
+            [
+                "b7bb0f5b67f6ef79"
+            ]
+        ]
+    },
+    {
+        "id": "b62ef80b50d3c7f8",
+        "type": "link out",
+        "z": "647bac3ec3c3cc05",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "11130396823a8f84"
+        ],
+        "x": 395,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "11130396823a8f84",
+        "type": "link in",
+        "z": "647bac3ec3c3cc05",
+        "name": "link in 1",
+        "links": [
+            "b62ef80b50d3c7f8"
+        ],
+        "x": 175,
+        "y": 740,
+        "wires": [
+            [
+                "93774033e29fb465",
+                "dafb7627d41c1b23"
+            ]
+        ]
+    },
+    {
+        "id": "bb9be870a1d6978b",
+        "type": "mqtt out",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "topic": "bipfinnland/monitoring9/data",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b571aa02ddf1e176",
+        "x": 500,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9b4643cce9af0d01",
+        "type": "inject",
+        "z": "647bac3ec3c3cc05",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 260,
+        "wires": [
+            [
+                "bb9be870a1d6978b"
+            ]
+        ]
+    },
+    {
+        "id": "f028552636e912bd",
+        "type": "ui_led",
+        "z": "647bac3ec3c3cc05",
+        "order": 1,
+        "group": "f3216bf7966ded35",
+        "width": 0,
+        "height": 0,
+        "label": "Alive",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 990,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "ece670fa6620974c",
+        "type": "function",
+        "z": "647bac3ec3c3cc05",
+        "name": "is energy box alive?",
+        "func": "if (msg.payload.timestamp == global.energyTimestamp){\n    msg.payload = false;\n}\nelse{\n    msg.payload = true;\n}\n\nglobal.energyTimestamp = msg.payload.timestamp;\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 40,
+        "wires": [
+            [
+                "f028552636e912bd"
+            ]
+        ]
+    },
+    {
+        "id": "76434a0e57b898f4",
+        "type": "change",
+        "z": "a76544aad63ee78a",
+        "name": "Define Global OEE Constants",
+        "rules": [
+            {
+                "t": "set",
+                "p": "OEE_MaxAv",
+                "pt": "global",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "OEE_",
+                "pt": "global",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "785f48532ebc0e63",
+        "type": "inject",
+        "z": "a76544aad63ee78a",
+        "name": "At Start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "76434a0e57b898f4",
+                "c3a918213ac73347",
+                "6c0683554096c507"
+            ]
+        ]
+    },
+    {
+        "id": "c3a918213ac73347",
+        "type": "change",
+        "z": "a76544aad63ee78a",
+        "name": "Define Thresholds",
+        "rules": [
+            {
+                "t": "set",
+                "p": "CurrentIdleThreshold",
+                "pt": "global",
+                "to": "0.09",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "CurrentPumpThreshold",
+                "pt": "global",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c0683554096c507",
+        "type": "change",
+        "z": "a76544aad63ee78a",
+        "name": "global energy timestamp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "energyTimestamp",
+                "pt": "global",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "08153c7ee4b98308",
+        "type": "mqtt in",
+        "z": "9d82848fbf653b21",
+        "name": "",
+        "topic": "bipfinnland/monitoring9/esp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b571aa02ddf1e176",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "0383b3ea786a5d65",
+                "642febc1c9095deb",
+                "39330b2436f5316d",
+                "3921b2af2f14bbce",
+                "22b62b5db8ca6e27",
+                "2bc99bbe5154a45c",
+                "325eaabcbee87d1e",
+                "33164fe1894bd508"
+            ]
+        ]
+    },
+    {
+        "id": "0383b3ea786a5d65",
+        "type": "debug",
+        "z": "9d82848fbf653b21",
+        "name": "ESP Debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "815a36d6d5038d39",
+        "type": "ui_led",
+        "z": "9d82848fbf653b21",
+        "order": 8,
+        "group": "e5305a6a50a756a8",
+        "width": 0,
+        "height": 0,
+        "label": "Water Level",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 630,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "642febc1c9095deb",
+        "type": "function",
+        "z": "9d82848fbf653b21",
+        "name": "function 1",
+        "func": "msg.payload = msg.payload.WaterSwitch;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 320,
+        "wires": [
+            [
+                "815a36d6d5038d39"
+            ]
+        ]
+    },
+    {
+        "id": "c412dd6b809a9cf0",
+        "type": "function",
+        "z": "9d82848fbf653b21",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.latchState;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 360,
+        "wires": [
+            [
+                "05e781d9f68f047a"
+            ]
+        ]
+    },
+    {
+        "id": "05e781d9f68f047a",
+        "type": "ui_led",
+        "z": "9d82848fbf653b21",
+        "order": 7,
+        "group": "e5305a6a50a756a8",
+        "width": "0",
+        "height": "0",
+        "label": "Coffee Latch",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "open",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "closed",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 630,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "5b6a96669be2c4c8",
+        "type": "ui_led",
+        "z": "9d82848fbf653b21",
+        "order": 4,
+        "group": "e5305a6a50a756a8",
+        "width": 0,
+        "height": 0,
+        "label": "Button Coffee Left",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#000000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 630,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "39330b2436f5316d",
+        "type": "function",
+        "z": "9d82848fbf653b21",
+        "name": "function 3",
+        "func": "msg.payload = msg.payload.ButtonCoffeeLeft;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 460,
+        "wires": [
+            [
+                "5b6a96669be2c4c8"
+            ]
+        ]
+    },
+    {
+        "id": "8e8d657fcba6bd0a",
+        "type": "ui_led",
+        "z": "9d82848fbf653b21",
+        "order": 5,
+        "group": "e5305a6a50a756a8",
+        "width": 0,
+        "height": 0,
+        "label": "Button Coffee Right",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#000000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 630,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "3921b2af2f14bbce",
+        "type": "function",
+        "z": "9d82848fbf653b21",
+        "name": "function 4",
+        "func": "msg.payload = msg.payload.ButtonCoffeeRight;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 500,
+        "wires": [
+            [
+                "8e8d657fcba6bd0a"
+            ]
+        ]
+    },
+    {
+        "id": "71bab5377af51764",
+        "type": "ui_slider",
+        "z": "9d82848fbf653b21",
+        "name": "",
+        "label": "Coffee Selector",
+        "tooltip": "Coffee Selector",
+        "group": "e5305a6a50a756a8",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1",
+        "step": 1,
+        "className": "",
+        "x": 660,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "22b62b5db8ca6e27",
+        "type": "function",
+        "z": "9d82848fbf653b21",
+        "name": "function 5",
+        "func": "if(msg.payload.SliderPosition == \"Left\"){\n    msg.payload = 1;\n}\nelse if (msg.payload.SliderPosition == \"Right\"){\n    msg.payload = 0;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 540,
+        "wires": [
+            [
+                "71bab5377af51764"
+            ]
+        ]
+    },
+    {
+        "id": "b691dc5bfc21523a",
+        "type": "ui_led",
+        "z": "9d82848fbf653b21",
+        "order": 3,
+        "group": "e5305a6a50a756a8",
+        "width": "0",
+        "height": "0",
+        "label": "LightLeft",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#000000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#f5ec00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 630,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "6b5386f93488766c",
+        "type": "ui_led",
+        "z": "9d82848fbf653b21",
+        "order": 2,
+        "group": "e5305a6a50a756a8",
+        "width": "0",
+        "height": "0",
+        "label": "LightRight",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#000000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#f5ec00",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 630,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "2bc99bbe5154a45c",
+        "type": "function",
+        "z": "9d82848fbf653b21",
+        "name": "function 6",
+        "func": "if (msg.payload.LightLeft == \"OFF\"){\n    msg.payload = false;\n}\nelse if (msg.payload.LightLeft == \"ON\"){\n    msg.payload = true;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 620,
+        "wires": [
+            [
+                "b691dc5bfc21523a"
+            ]
+        ]
+    },
+    {
+        "id": "325eaabcbee87d1e",
+        "type": "function",
+        "z": "9d82848fbf653b21",
+        "name": "function 7",
+        "func": "if (msg.payload.LightRight == \"OFF\"){\n    msg.payload = false;\n}\nelse if (msg.payload.LightRight == \"ON\"){\n    msg.payload = true;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 660,
+        "wires": [
+            [
+                "6b5386f93488766c"
+            ]
+        ]
+    },
+    {
+        "id": "aa4995983ba74015",
+        "type": "ui_led",
+        "z": "9d82848fbf653b21",
+        "order": 1,
+        "group": "e5305a6a50a756a8",
+        "width": 0,
+        "height": 0,
+        "label": "Alive",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 690,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "33164fe1894bd508",
+        "type": "function",
+        "z": "9d82848fbf653b21",
+        "name": "is coffee addon alive?",
+        "func": "if (msg.payload.Timestamp != null){\n    msg.payload = true;\n}\nelse{\n    msg.payload = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 260,
+        "wires": [
+            [
+                "aa4995983ba74015"
             ]
         ]
     }
