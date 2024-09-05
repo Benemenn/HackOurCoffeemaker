@@ -131,18 +131,18 @@
         },
         "nodes": [
             "815a36d6d5038d39",
-            "05e781d9f68f047a",
             "5b6a96669be2c4c8",
             "8e8d657fcba6bd0a",
             "71bab5377af51764",
             "b691dc5bfc21523a",
             "6b5386f93488766c",
-            "aa4995983ba74015"
+            "aa4995983ba74015",
+            "bf0299113fc74b02"
         ],
         "x": 674,
         "y": 219,
         "w": 212,
-        "h": 482
+        "h": 522
     },
     {
         "id": "7e984f7c8f475839",
@@ -154,18 +154,18 @@
         },
         "nodes": [
             "642febc1c9095deb",
-            "c412dd6b809a9cf0",
             "39330b2436f5316d",
             "3921b2af2f14bbce",
             "22b62b5db8ca6e27",
             "2bc99bbe5154a45c",
             "325eaabcbee87d1e",
-            "33164fe1894bd508"
+            "33164fe1894bd508",
+            "ed4d3bf327a1cb87"
         ],
         "x": 394,
         "y": 219,
         "w": 252,
-        "h": 482
+        "h": 522
     },
     {
         "id": "7aa53e255b871d74",
@@ -1165,6 +1165,11 @@
                 "color": "#008000",
                 "value": "true",
                 "valueType": "bool"
+            },
+            {
+                "color": "#ff84ff",
+                "value": "null",
+                "valueType": "num"
             }
         ],
         "allowColorForValueInMessage": false,
@@ -1373,7 +1378,8 @@
                 "22b62b5db8ca6e27",
                 "2bc99bbe5154a45c",
                 "325eaabcbee87d1e",
-                "33164fe1894bd508"
+                "33164fe1894bd508",
+                "ed4d3bf327a1cb87"
             ]
         ]
     },
@@ -1431,74 +1437,21 @@
         "type": "function",
         "z": "9d82848fbf653b21",
         "g": "7e984f7c8f475839",
-        "name": "state waterslider",
-        "func": "msg.payload = msg.payload.WaterSwitch;\nreturn msg;",
+        "name": "state waterswitch",
+        "func": "msg.payload = !msg.payload.WaterSwitch;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
+        "x": 510,
         "y": 320,
         "wires": [
             [
                 "815a36d6d5038d39"
             ]
         ]
-    },
-    {
-        "id": "c412dd6b809a9cf0",
-        "type": "function",
-        "z": "9d82848fbf653b21",
-        "g": "7e984f7c8f475839",
-        "name": "state latch",
-        "func": "msg.payload = msg.payload.latchState;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 360,
-        "wires": [
-            [
-                "05e781d9f68f047a"
-            ]
-        ]
-    },
-    {
-        "id": "05e781d9f68f047a",
-        "type": "ui_led",
-        "z": "9d82848fbf653b21",
-        "g": "90c0041cbdea2787",
-        "order": 7,
-        "group": "e5305a6a50a756a8",
-        "width": "0",
-        "height": "0",
-        "label": "Coffee Latch",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#ff0000",
-                "value": "open",
-                "valueType": "str"
-            },
-            {
-                "color": "#008000",
-                "value": "closed",
-                "valueType": "str"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": true,
-        "name": "",
-        "x": 750,
-        "y": 360,
-        "wires": []
     },
     {
         "id": "5b6a96669be2c4c8",
@@ -1813,6 +1766,49 @@
         ]
     },
     {
+        "id": "ed4d3bf327a1cb87",
+        "type": "function",
+        "z": "9d82848fbf653b21",
+        "g": "7e984f7c8f475839",
+        "name": "function 1",
+        "func": "if(msg.payload.LatchSwitch == false){\n    msg.payload = \"Open\";\n}\nelse if (msg.payload.LatchSwitch == true){\n    msg.payload = \"Closed\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 700,
+        "wires": [
+            [
+                "bf0299113fc74b02"
+            ]
+        ]
+    },
+    {
+        "id": "bf0299113fc74b02",
+        "type": "ui_text",
+        "z": "9d82848fbf653b21",
+        "g": "90c0041cbdea2787",
+        "group": "e5305a6a50a756a8",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Latch Sate",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 770,
+        "y": 700,
+        "wires": []
+    },
+    {
         "id": "56404807c7d2689b",
         "type": "mqtt in",
         "z": "2444e5c896f22c2f",
@@ -1829,7 +1825,9 @@
         "y": 80,
         "wires": [
             [
-                "058b00ab4d15b7ca"
+                "058b00ab4d15b7ca",
+                "2fe390933d7e5561",
+                "465cf15263ec65e0"
             ]
         ]
     },
@@ -1842,12 +1840,46 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
         "x": 340,
         "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2fe390933d7e5561",
+        "type": "debug",
+        "z": "2444e5c896f22c2f",
+        "name": "Addon Debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.WaterSwitch",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "465cf15263ec65e0",
+        "type": "debug",
+        "z": "2444e5c896f22c2f",
+        "name": "Addon Debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.LatchSwitch",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 160,
         "wires": []
     },
     {
