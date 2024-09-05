@@ -24,6 +24,14 @@
         "env": []
     },
     {
+        "id": "2444e5c896f22c2f",
+        "type": "tab",
+        "label": "Addon Debug",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "a8414d2cd57bea3c",
         "type": "serial-port",
         "name": "",
@@ -286,7 +294,7 @@
     {
         "id": "02892e1e08971927",
         "type": "ui_tab",
-        "name": "DigitalTwin",
+        "name": "Digital Shadow",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
@@ -294,7 +302,7 @@
     {
         "id": "e5305a6a50a756a8",
         "type": "ui_group",
-        "name": "DigTwin",
+        "name": "Dig Shadow",
         "tab": "02892e1e08971927",
         "order": 1,
         "disp": true,
@@ -466,8 +474,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 460,
-        "y": 100,
+        "x": 440,
+        "y": 40,
         "wires": []
     },
     {
@@ -1605,5 +1613,43 @@
                 "aa4995983ba74015"
             ]
         ]
+    },
+    {
+        "id": "56404807c7d2689b",
+        "type": "mqtt in",
+        "z": "2444e5c896f22c2f",
+        "name": "esp",
+        "topic": "bipfinnland/monitoring9/esp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b571aa02ddf1e176",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "058b00ab4d15b7ca"
+            ]
+        ]
+    },
+    {
+        "id": "058b00ab4d15b7ca",
+        "type": "debug",
+        "z": "2444e5c896f22c2f",
+        "name": "Addon Debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 80,
+        "wires": []
     }
 ]
