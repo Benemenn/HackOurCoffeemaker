@@ -40,6 +40,7 @@ static Ads1115Continuous adcConverter;
 static const u8_t LIGHT_LEFT_CHANNEL = 0;
 static const u8_t LIGHT_RIGHT_CHANNEL = 1;
 static const u8_t WATER_LEVEL_CHANNEL = 2;
+static const u8_t LATCH_CHANNEL = 3;
 // LDRs:
 static LdrBlinkSensor sensorLightLeft;
 static LdrBlinkSensor sensorLightRight;
@@ -48,6 +49,8 @@ static const u16_t WATER_LEVEL_ON_THRESHOLD = 13000;
 static const u16_t WATER_LEVEL_OFF_THRESHOLD = 7000;
 static const u8_t WATER_LEVEL_FILTER_SIZE = 3;
 static ThresholdSensor switchWaterLevel(WATER_LEVEL_ON_THRESHOLD, WATER_LEVEL_OFF_THRESHOLD, WATER_LEVEL_FILTER_SIZE);
+static ThresholdSensor latchSensor(WATER_LEVEL_ON_THRESHOLD, WATER_LEVEL_OFF_THRESHOLD, WATER_LEVEL_FILTER_SIZE);
+
 // Buttons:
 static const int BUTTON_COFFEE_LEFT_PIN = 33;
 static const int BUTTON_COFFEE_RIGHT_PIN = 17;
@@ -108,6 +111,7 @@ void loop() {
     sensorLightLeft.update(adcConverter, LIGHT_LEFT_CHANNEL);
     sensorLightRight.update(adcConverter, LIGHT_RIGHT_CHANNEL);
     switchWaterLevel.update(adcConverter, WATER_LEVEL_CHANNEL);
+    latchSensor.update(adcConverter, LATCH_CHANNEL);
     slider.update(buttonSliderLeft.isPressed(), buttonSliderRight.isPressed());
 
     mqttHandler.update();
@@ -134,6 +138,7 @@ void loop() {
         jsonDoc["LightLeft"] = sensorLightLeft.getStateString();
         jsonDoc["LightRight"] = sensorLightRight.getStateString();
         jsonDoc["WaterSwitch"] = switchWaterLevel.getState();
+        jsonDoc["LatchSwitch"] = latchSensor.getState();
         jsonDoc["Timestamp"] = ntpHandler.getFormattedTime();
 
         // Publish the data to the MQTT broker
