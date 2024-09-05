@@ -109,3 +109,9 @@
 
 - Object oriented modeling language
 -  
+
+## Day 4 - AI
+
+- widely used today
+- GenAI, LLM, ML, ...
+- AI appeared around the 1950's, LM in the 80's, ...
