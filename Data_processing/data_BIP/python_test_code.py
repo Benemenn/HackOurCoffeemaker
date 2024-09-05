@@ -10,8 +10,8 @@ import time
 # MQTT connection settings
 MQTT_BROKER = "192.168.178.21"
 MQTT_PORT = 1883
-MQTT_TOPIC_DATA = "bipfinnland/monitoring9/data"  # Old topic for general data
-MQTT_TOPIC_ESP = "bipfinnland/monitoring9/esp"    # New topic for ESP data (buttons and slider)
+MQTT_TOPIC_DATA = "bipfinnland/monitoring9/data"  
+MQTT_TOPIC_ESP = "bipfinnland/monitoring9/esp"    
 
 # Global variables to manage data collection
 collecting_data = False
@@ -110,6 +110,7 @@ def start_data_collection():
     print("[DEBUG] Data collection started...")
 
 # Function to stop data collection, process power low, and save AI training data
+# Function to stop data collection, process power low, and save AI training data
 def stop_data_collection():
     global collecting_data, data_list, file_name, button_left_pressed, button_right_pressed, slider_position, power_low_sum
 
@@ -149,9 +150,9 @@ def stop_data_collection():
             df.to_excel(writer, index=False, sheet_name=session_name)
         print(f"[DEBUG] Data saved to {file_name}")
 
-    # Now save to the AI training file
-    if cup_type and power_low_sum > 0:
-        print(f"[DEBUG] Saving AI training data - Power Low Sum: {power_low_sum}, Cup Type: {cup_type}")
+    # Save to the AI training file even if the last Power Low value is 0 but there's a valid sum
+    if power_low_sum > 0:  # Check if any valid sum was accumulated
+        print(f"[DEBUG] Saving AI training data - Power Low Sum: {power_low_sum}, Cup Type: {cup_type if cup_type else 'Unknown'}")
 
         # Load existing AI training data or create a new one
         if not os.path.isfile(ai_training_file):
@@ -161,7 +162,7 @@ def stop_data_collection():
             ai_training_df = pd.read_excel(ai_training_file)
 
         # Add new row with Power Low Sum and Cup Type
-        new_row = pd.DataFrame({"Power Low Sum": [power_low_sum], "Cup Type": [cup_type]})
+        new_row = pd.DataFrame({"Power Low Sum": [power_low_sum], "Cup Type": [cup_type if cup_type else "Unknown"]})
 
         # Use concat instead of append (since append is deprecated)
         ai_training_df = pd.concat([ai_training_df, new_row], ignore_index=True)
@@ -172,7 +173,8 @@ def stop_data_collection():
 
         print(f"[DEBUG] AI training data saved to {ai_training_file}")
     else:
-        print("[ERROR] No valid AI training data. Ensure Power Low sum and cup type are correct.")
+        print("[ERROR] No valid Power Low data accumulated. Check the tracking logic.")
+
 
 # Set up MQTT client and callbacks
 client = mqtt.Client()
@@ -201,7 +203,7 @@ if __name__ == "__main__":
     # Use a separate thread to handle input so the main thread can continue running the MQTT loop
     def handle_input():
         print("[DEBUG] Waiting 80 seconds before stopping data collection...")
-        time.sleep(80)  # Collect data for 80 seconds
+        time.sleep(110)  # Collect data for 80 seconds
         stop_data_collection()
         stop_mqtt_loop()
 
