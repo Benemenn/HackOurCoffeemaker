@@ -92,12 +92,13 @@
         "nodes": [
             "0560222a4123a9e7",
             "68038e7d5c6ddedd",
-            "b7bb0f5b67f6ef79"
+            "b7bb0f5b67f6ef79",
+            "e7c503635cfa726d"
         ],
-        "x": 654,
+        "x": 674,
         "y": 639,
         "w": 232,
-        "h": 182
+        "h": 202
     },
     {
         "id": "bfd09b6c93952cbd",
@@ -873,7 +874,7 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 760,
+        "x": 780,
         "y": 720,
         "wires": []
     },
@@ -891,7 +892,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
+        "x": 780,
         "y": 680,
         "wires": []
     },
@@ -1015,8 +1016,8 @@
         "shape": "circle",
         "showGlow": true,
         "name": "",
-        "x": 730,
-        "y": 780,
+        "x": 750,
+        "y": 800,
         "wires": []
     },
     {
@@ -1077,7 +1078,8 @@
         "y": 760,
         "wires": [
             [
-                "b7bb0f5b67f6ef79"
+                "b7bb0f5b67f6ef79",
+                "e7c503635cfa726d"
             ]
         ]
     },
@@ -1105,7 +1107,8 @@
         "y": 800,
         "wires": [
             [
-                "b7bb0f5b67f6ef79"
+                "b7bb0f5b67f6ef79",
+                "e7c503635cfa726d"
             ]
         ]
     },
@@ -1200,13 +1203,31 @@
         "links": [
             "b62ef80b50d3c7f8"
         ],
-        "x": 145,
+        "x": 95,
         "y": 400,
         "wires": [
             [
                 "9a78172a22fed8e3"
             ]
         ]
+    },
+    {
+        "id": "e7c503635cfa726d",
+        "type": "debug",
+        "z": "647bac3ec3c3cc05",
+        "g": "12414c0c4e252a3c",
+        "name": "Status Debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "status",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 760,
+        "wires": []
     },
     {
         "id": "76434a0e57b898f4",
@@ -1234,7 +1255,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
+        "x": 410,
         "y": 160,
         "wires": [
             []
@@ -1297,7 +1318,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 310,
+        "x": 370,
         "y": 220,
         "wires": [
             []
@@ -1322,7 +1343,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
+        "x": 390,
         "y": 280,
         "wires": [
             []
