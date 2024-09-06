@@ -1293,8 +1293,7 @@
             [
                 "76434a0e57b898f4",
                 "c3a918213ac73347",
-                "6c0683554096c507",
-                "add957889aa5929a"
+                "6c0683554096c507"
             ]
         ]
     },
@@ -1356,40 +1355,67 @@
         ]
     },
     {
-        "id": "add957889aa5929a",
-        "type": "change",
+        "id": "376a624f80de160c",
+        "type": "inject",
         "z": "a76544aad63ee78a",
-        "name": "global energy timestamp",
-        "rules": [
+        "name": "",
+        "props": [
             {
-                "t": "set",
-                "p": "coffeespulled",
-                "pt": "global",
-                "to": "0",
-                "tot": "str"
+                "p": "payload"
             },
             {
-                "t": "set",
-                "p": "coffeepulledFlag",
-                "pt": "global",
-                "to": "false",
-                "tot": "bool"
-            },
-            {
-                "t": "set",
-                "p": "coffeestarted",
-                "pt": "global",
-                "to": "false",
-                "tot": "bool"
+                "p": "topic",
+                "vt": "str"
             }
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 390,
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
         "y": 340,
+        "wires": [
+            [
+                "7131966143c73407",
+                "533094d2089a8b4b"
+            ]
+        ]
+    },
+    {
+        "id": "7131966143c73407",
+        "type": "function",
+        "z": "a76544aad63ee78a",
+        "name": "function 2",
+        "func": "global.set(\"coffeespulled\") || 0;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "533094d2089a8b4b",
+        "type": "function",
+        "z": "a76544aad63ee78a",
+        "name": "function 3",
+        "func": "global.set(\"coffeestarted\") || 0;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 380,
         "wires": [
             []
         ]
@@ -1853,7 +1879,7 @@
         "type": "function",
         "z": "9d82848fbf653b21",
         "name": "Flank Detection to count coffees.",
-        "func": "if (msg.payload.data[\"Current Low\"] > 5 && !global.coffeestarted){\n    //coffee started producing\n    global.coffeestarted = true;\n}\nif (msg.payload.data[\"Current Low\"] < 0.40 && global.coffeestarted){\n    //stopped producing\n    global.coffeestarted = false;\n    global.coffeespulled += 1;\n}\nreturn msg;",
+        "func": "if (msg.payload.data[\"Current Low\"] > 5 && (global.get(\"coffeestarted\") == 0)){\n    //coffee started producing\n    global.coffeestarted = true;\n}\nif (msg.payload.data[\"Current Low\"] < 0.40 && (global.get(\"coffeestarted\") == 1)){\n    //stopped producing\n    global.coffeestarted = false;\n    global.set(\"coffeespulled\", global.get(\"coffeespulled\") + 1);\n}\n\nmsg.coffeespulled = global.get(\"coffeespulled\");\nmsg.coffeestarted = global.get(\"coffeestarted\");\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1864,7 +1890,9 @@
         "y": 880,
         "wires": [
             [
-                "0a86eb8a0c1ac3c4"
+                "0a86eb8a0c1ac3c4",
+                "8e5c3567aac7d43a",
+                "a86644a5cf2c65e5"
             ]
         ]
     },
@@ -1878,14 +1906,14 @@
         "height": 0,
         "name": "",
         "label": "Coffeespulled since Reset",
-        "format": "{{global.coffeespulled}}",
+        "format": "{{msg.coffeespulled}}",
         "layout": "row-spread",
         "className": "",
         "style": false,
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 810,
+        "x": 830,
         "y": 880,
         "wires": []
     },
@@ -1909,6 +1937,40 @@
                 "93ecf66b67227e9f"
             ]
         ]
+    },
+    {
+        "id": "8e5c3567aac7d43a",
+        "type": "debug",
+        "z": "9d82848fbf653b21",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "coffeespulled",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "a86644a5cf2c65e5",
+        "type": "debug",
+        "z": "9d82848fbf653b21",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 1000,
+        "wires": []
     },
     {
         "id": "56404807c7d2689b",
