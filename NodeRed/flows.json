@@ -1293,7 +1293,8 @@
             [
                 "76434a0e57b898f4",
                 "c3a918213ac73347",
-                "6c0683554096c507"
+                "6c0683554096c507",
+                "add957889aa5929a"
             ]
         ]
     },
@@ -1350,6 +1351,45 @@
         "reg": false,
         "x": 390,
         "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "add957889aa5929a",
+        "type": "change",
+        "z": "a76544aad63ee78a",
+        "name": "global energy timestamp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "coffeespulled",
+                "pt": "global",
+                "to": "0",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "coffeepulledFlag",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "coffeestarted",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 340,
         "wires": [
             []
         ]
@@ -1807,6 +1847,68 @@
         "x": 770,
         "y": 700,
         "wires": []
+    },
+    {
+        "id": "93ecf66b67227e9f",
+        "type": "function",
+        "z": "9d82848fbf653b21",
+        "name": "Flank Detection to count coffees.",
+        "func": "if (msg.payload.data[\"Current Low\"] > 5 && !global.coffeestarted){\n    //coffee started producing\n    global.coffeestarted = true;\n}\nif (msg.payload.data[\"Current Low\"] < 0.40 && global.coffeestarted){\n    //stopped producing\n    global.coffeestarted = false;\n    global.coffeespulled += 1;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 880,
+        "wires": [
+            [
+                "0a86eb8a0c1ac3c4"
+            ]
+        ]
+    },
+    {
+        "id": "0a86eb8a0c1ac3c4",
+        "type": "ui_text",
+        "z": "9d82848fbf653b21",
+        "group": "e5305a6a50a756a8",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Coffeespulled since Reset",
+        "format": "{{global.coffeespulled}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 810,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "85ba6841cddec026",
+        "type": "mqtt in",
+        "z": "9d82848fbf653b21",
+        "name": "",
+        "topic": "bipfinnland/monitoring9/data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "b571aa02ddf1e176",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 880,
+        "wires": [
+            [
+                "93ecf66b67227e9f"
+            ]
+        ]
     },
     {
         "id": "56404807c7d2689b",
