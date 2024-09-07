@@ -299,6 +299,7 @@
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -416,6 +417,7 @@
         "type": "ui_tab",
         "name": "Live Energy Data",
         "icon": "dashboard",
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -508,6 +510,7 @@
         "type": "ui_tab",
         "name": "Digital Shadow",
         "icon": "dashboard",
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -537,7 +540,7 @@
         "type": "ui_tab",
         "name": "AI",
         "icon": "dashboard",
-        "order": 4,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -2242,7 +2245,7 @@
         "height": "1",
         "name": "",
         "label": "Last AI prediction",
-        "format": "{{msg.payload}}",
+        "format": "{{msg.payload[\"Predicted Cup Type\"]}}",
         "layout": "row-center",
         "className": "",
         "style": false,
@@ -2266,8 +2269,33 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
+        "x": 500,
         "y": 100,
         "wires": []
+    },
+    {
+        "id": "0a232eb9a866ee08",
+        "type": "inject",
+        "z": "8615ea86b06430f7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload[\"Predicted Cup Type\"]",
+                "v": "/",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "024654a7b5d69cf4"
+            ]
+        ]
     }
 ]
